@@ -10,7 +10,6 @@ function HomePage() {
     title: "",
     keywords: "",
     wordlimit: 250,
-    images: 1,
   });
 
   const [blog, setBlog] = useState("");
@@ -178,21 +177,6 @@ function HomePage() {
                       <span>250</span>
                       <span>1000</span>
                     </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="images" className="block text-sm font-medium text-gray-300">Number of Images</label>
-                    <input
-                      type="number"
-                      id="images"
-                      name="images"
-                      min={1}
-                      max={5}
-                      value={data.images}
-                      onChange={onChange}
-                      disabled={isLoading}
-                      className="w-full px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
-                    />
                   </div>
 
                   <button
