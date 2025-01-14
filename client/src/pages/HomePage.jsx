@@ -43,7 +43,7 @@ function HomePage() {
     setCopySuccess("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000", data);
+      const response = await axios.post("https://blog-buddy-ai.onrender.com", data);
       setBlog(response.data.candidates[0].content.parts[0].text);
       setShowInputs(false);
     } catch (error) {
