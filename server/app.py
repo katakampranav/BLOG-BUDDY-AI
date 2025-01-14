@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://blog-buddy-ai.vercel.app"])
 
 load_dotenv()
 
@@ -22,7 +22,7 @@ def generateBlog():
         wordlimit = input_data.get("wordlimit", 250)
 
         # Validate the inputs
-        if not title or not keywords or wordlimit <= 0 or images < 0:
+        if not title or not keywords or wordlimit <= 0:
             return jsonify({"error": "Invalid input fields"}), 400
 
         # Construct the prompt for the API using input fields
