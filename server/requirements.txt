@@ -4,5 +4,4 @@ google-generativeai
 flask
 flask_cors
 diffusers
-base64
 torch
