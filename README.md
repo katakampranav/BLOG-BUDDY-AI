@@ -47,6 +47,8 @@ Here is a high-level overview of the workflow for Blog Buddy AI:
    - The backend returns the generated blog content as a response.
 5. **Content Display**:
    - The frontend displays the generated blog in a clean, readable format.
+  
+![image](https://github.com/user-attachments/assets/7fd77027-d122-4785-b391-5da46abd17bc)
 
 ---
 
