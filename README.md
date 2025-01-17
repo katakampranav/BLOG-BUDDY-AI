@@ -52,6 +52,120 @@ Here is a high-level overview of the workflow for Blog Buddy AI:
 
 ---
 
+## Sequence Diagram
+![Image](https://github.com/user-attachments/assets/f9dbd662-21df-41e8-8b56-4aa394529b39)
+
+---
+
+## Directory Structure
+
+```
+└── katakampranav-blog-buddy-ai/
+    ├── README.md
+    ├── client/
+    │   ├── README.md
+    │   ├── eslint.config.js
+    │   ├── index.html
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── postcss.config.js
+    │   ├── tailwind.config.js
+    │   ├── vite.config.js
+    │   ├── .gitignore
+    │   ├── public/
+    │   └── src/
+    │       ├── App.jsx
+    │       ├── index.css
+    │       ├── main.jsx
+    │       ├── assets/
+    │       │   └── lottie/
+    │       │       └── blogAnimation.json
+    │       └── pages/
+    │           └── HomePage.jsx
+    └── server/
+        ├── app.py
+        ├── requirements.txt
+        └── .gitignore
+
+```
+---
+
+## Client
+
+1. **React Components**: 
+   - Created a `HomePage` React component to handle the main UI for blog generation, including input fields for the blog title, keywords, and word limit.
+   - Managed user interactions with forms, buttons, and feedback messages using React hooks like `useState`.
+
+2. **API Integration**: 
+   - Used `axios` to make a POST request to the backend API (`https://blog-buddy-ai.onrender.com`) to generate blog content.
+   - Handled API response data to display the blog content dynamically.
+
+3. **Dynamic Form Handling**: 
+   - Allowed users to input the blog title, keywords, and word count through controlled components (`title`, `keywords`, and `wordlimit`).
+   - Dynamically updated the word limit slider with labels for min and max values.
+
+4. **Loading and Error States**: 
+   - Added `isLoading` to show a loading indicator when the API request is in progress.
+   - Displayed error messages when required fields were left empty or if the API request failed.
+
+5. **Blog Display and Interactivity**: 
+   - Rendered the generated blog content using the `ReactMarkdown` component to format the text as markdown.
+   - Included options to download the blog content as a `.txt` file and copy the content to the clipboard.
+
+6. **Animations and Design**: 
+   - Integrated Lottie animations (`blogAnimation.json`) to enhance the UI and provide a visual indication of the blog generation process.
+   - Styled the application with TailwindCSS for responsive design, gradients, and transitions.
+
+7. **Feedback and Regeneration**: 
+   - Provided user feedback for successful actions, such as copying the blog content to the clipboard.
+   - Added functionality to regenerate the blog by resetting the form inputs and clearing the existing content.
+
+![Image](https://github.com/user-attachments/assets/d3f48622-fc08-4888-a528-3e2522ab0a2d)
+
+![Image](https://github.com/user-attachments/assets/d57cee2d-5b2d-43c3-b3af-7d765fc4d107)
+
+---
+
+## Server
+
+1. **Backend Framework and API Setup**:  
+   - Built the backend using **Express.js** to create a RESTful API for blog generation.
+   - Set up a main API endpoint (`POST /`) to handle incoming requests for blog content generation.
+
+2. **Request Validation**:  
+   - Implemented validation for incoming requests to ensure required fields (`title`, `keywords`, and `wordlimit`) were present in the request body.  
+   - Sent appropriate error responses (`400 Bad Request`) if any required fields were missing.
+
+3. **Integration with OpenAI GPT**:  
+   - Used the OpenAI API to generate blog content based on the user's input (blog title, keywords, and word limit).  
+   - Passed user-provided data to the GPT model in the form of a prompt that guided the content generation.  
+
+4. **Environment Configuration**:  
+   - Secured sensitive information, such as the OpenAI API key, using environment variables managed with **dotenv**.
+
+5. **Response Handling**:  
+   - Formatted and sent the generated blog content back to the client in JSON format.  
+   - Handled errors gracefully, such as issues with the OpenAI API or internal server errors, and sent meaningful responses (`500 Internal Server Error`).
+
+6. **Error Logging and Debugging**:  
+   - Included robust error handling to catch and log errors in the console for debugging during development.  
+   - Provided informative error messages to help identify issues when requests failed.
+
+7. **CORS Configuration**:  
+   - Configured **CORS** to allow cross-origin requests from the client hosted on a different domain, enabling seamless communication between the frontend and backend.
+
+8. **Deployment**:  
+   - Deployed the backend on **Render**, making the API accessible at `https://blog-buddy-ai.onrender.com`.  
+   - Ensured the deployment process was smooth by setting up appropriate scripts and dependencies in the `package.json`.
+
+9. **Optimization**:  
+   - Streamlined the code by separating configuration, routes, and server setup for better maintainability.  
+   - Ensured the server could scale effectively by structuring the code for potential future additions.  
+
+![Image](https://github.com/user-attachments/assets/f2d3124b-f97d-4e9f-a7c0-2daa37d48f6a)
+
+---
+
 ## Installation and Usage
 
 To run this project locally, follow these steps:
