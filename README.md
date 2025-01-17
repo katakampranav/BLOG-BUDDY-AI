@@ -29,7 +29,7 @@ By streamlining the blog creation process, Blog Buddy AI saves time, boosts crea
 - **Responsive Design**: The web application is optimized for desktop and mobile devices.
 - **Deployed Services**: 
   - Frontend: Hosted on [Vercel](https://blog-buddy-ai.vercel.app/)
-  - Backend: Hosted on Render.
+  - Backend: Hosted on [Render](https://blog-buddy-ai.onrender.com)
 
 ---
 
@@ -117,7 +117,7 @@ Here is a high-level overview of the workflow for Blog Buddy AI:
    - Styled the application with TailwindCSS for responsive design, gradients, and transitions.
 
 7. **Feedback and Regeneration**: 
-   - Provided user feedback for successful actions, such as copying the blog content to the clipboard.
+   - Provided features such as copying the blog content to the clipboard and downloading the blog content into txt file.
    - Added functionality to regenerate the blog by resetting the form inputs and clearing the existing content.
 
 ![Image](https://github.com/user-attachments/assets/d3f48622-fc08-4888-a528-3e2522ab0a2d)
@@ -129,19 +129,19 @@ Here is a high-level overview of the workflow for Blog Buddy AI:
 ## Server
 
 1. **Backend Framework and API Setup**:  
-   - Built the backend using **Express.js** to create a RESTful API for blog generation.
+   - Built the backend using **Flask** to create a RESTful API for blog generation.
    - Set up a main API endpoint (`POST /`) to handle incoming requests for blog content generation.
 
 2. **Request Validation**:  
    - Implemented validation for incoming requests to ensure required fields (`title`, `keywords`, and `wordlimit`) were present in the request body.  
    - Sent appropriate error responses (`400 Bad Request`) if any required fields were missing.
 
-3. **Integration with OpenAI GPT**:  
-   - Used the OpenAI API to generate blog content based on the user's input (blog title, keywords, and word limit).  
+3. **Integration with Gemini API**:  
+   - Used the Gemini API to generate blog content based on the user's input (blog title, keywords, and word limit).  
    - Passed user-provided data to the GPT model in the form of a prompt that guided the content generation.  
 
 4. **Environment Configuration**:  
-   - Secured sensitive information, such as the OpenAI API key, using environment variables managed with **dotenv**.
+   - Secured sensitive information, such as the Gemini API key, using environment variables managed with **dotenv**.
 
 5. **Response Handling**:  
    - Formatted and sent the generated blog content back to the client in JSON format.  
@@ -180,7 +180,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/katakampranav/BLOG-BUDDY-AI.git
-   cd BLOG-BUDDY-AI/frontend
+   cd BLOG-BUDDY-AI/client
    ```
 2. Install dependencies:
    ```bash
@@ -194,7 +194,7 @@ To run this project locally, follow these steps:
 ### Backend Setup
 1. Navigate to the backend directory:
    ```bash
-   cd ../backend
+   cd ../server
    ```
 2. Create a `.env` file with the following:
    ```env
